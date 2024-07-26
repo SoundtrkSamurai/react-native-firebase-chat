@@ -1,11 +1,10 @@
-import React from "react";
-import { Text, View } from "react-native";
 import useSession from "@/hooks/ctx";
+import { Text, View } from "react-native";
 
-export default function Index() {
+const Index = () => {
   const { signOut } = useSession();
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View className="items-center justify-center flex-1">
       <Text
         onPress={() => {
           // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.
@@ -16,4 +15,6 @@ export default function Index() {
       </Text>
     </View>
   );
-}
+};
+
+export default Index;

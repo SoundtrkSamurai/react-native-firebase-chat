@@ -13,7 +13,7 @@ export const AuthContext = createContext<{
 });
 
 // This hook can be used to access the user info.
-export default function useSession() {
+const useSession = () => {
   const value = useContext(AuthContext);
   if (process.env.NODE_ENV !== "production") {
     if (!value) {
@@ -22,4 +22,6 @@ export default function useSession() {
   }
 
   return value;
-}
+};
+
+export default useSession;

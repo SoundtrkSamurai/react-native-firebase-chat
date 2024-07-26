@@ -39,7 +39,7 @@ export const setStorageItemAsync = async (
   }
 };
 
-export default function useStorageState(key: string): UseStateHook<string> {
+const useStorageState = (key: string): UseStateHook<string> => {
   // Public
   const [state, setState] = useAsyncState<string>();
 
@@ -70,4 +70,6 @@ export default function useStorageState(key: string): UseStateHook<string> {
   );
 
   return [state, setValue];
-}
+};
+
+export default useStorageState;

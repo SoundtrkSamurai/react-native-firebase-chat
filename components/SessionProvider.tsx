@@ -2,7 +2,7 @@ import { AuthContext } from "@/hooks/ctx";
 import useStorageState from "@/hooks/useStorageState";
 import { PropsWithChildren } from "react";
 
-export const SessionProvider = ({ children }: PropsWithChildren) => {
+const SessionProvider = ({ children }: PropsWithChildren) => {
   const [[isLoading, session], setSession] = useStorageState("session");
 
   return (
@@ -23,3 +23,5 @@ export const SessionProvider = ({ children }: PropsWithChildren) => {
     </AuthContext.Provider>
   );
 };
+
+export default SessionProvider;

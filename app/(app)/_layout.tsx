@@ -2,7 +2,7 @@ import useSession from "@/hooks/ctx";
 import { Redirect, Stack } from "expo-router";
 import { Text } from "react-native";
 
-export default function AppLayout() {
+const AppLayout = () => {
   const { session, isLoading } = useSession();
 
   // You can keep the splash screen open, or render a loading screen like we do here.
@@ -20,4 +20,6 @@ export default function AppLayout() {
 
   // This layout can be deferred because it's not the root layout.
   return <Stack />;
-}
+};
+
+export default AppLayout;

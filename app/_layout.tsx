@@ -12,15 +12,16 @@
 //     />
 //   );
 // }
+import SessionProvider from "@/components/SessionProvider";
 import { Slot } from "expo-router";
-import React from "react";
-import { SessionProvider } from "@/components/SessionProvider";
 
-export default function Root() {
+const Root = () => {
   // Set up the auth context and render our layout inside of it.
   return (
     <SessionProvider>
       <Slot />
     </SessionProvider>
   );
-}
+};
+
+export default Root;
