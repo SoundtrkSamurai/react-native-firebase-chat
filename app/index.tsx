@@ -1,7 +1,6 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { SafeAreaView, Text } from "react-native";
 import GlobalStyles from "@/utils/GlobalStyles";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaView, Text } from "react-native";
 
 const Index = () => {
   return (
