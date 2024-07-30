@@ -1,27 +1,38 @@
-// import { Stack } from "expo-router";
-// import React from "react";
+import { AuthContextProvider, useAuth } from "@/context/authContext";
+import { Slot, useRouter, useSegments } from "expo-router";
+import { useEffect } from "react";
+import "../global.css";
 
-// import "../global.css";
+const MainLayout = () => {
+  const { isAuthenticated } = useAuth();
+  const segments = useSegments();
+  const router = useRouter();
 
-// export default function RootLayout() {
-//   return (
-//     <Stack
-//       screenOptions={{
-//         headerShown: false,
-//       }}
-//     />
-//   );
-// }
-import SessionProvider from "@/components/SessionProvider";
-import { Slot } from "expo-router";
+  useEffect(() => {
+    // check if user is authenitcated or not
+    if (typeof isAuthenticated === "undefined") return;
 
-const Root = () => {
-  // Set up the auth context and render our layout inside of it.
+    const inApp = segments[0] == "(app)";
+    if (isAuthenticated && !inApp) {
+      // redirect user to home
+      router.replace("home");
+    } else if (isAuthenticated == false) {
+      // redirect user to sign in page
+      router.replace("signIn");
+    }
+
+    return () => {};
+  }, [isAuthenticated]);
+
+  return <Slot />;
+};
+
+const RootLayout = () => {
   return (
-    <SessionProvider>
-      <Slot />
-    </SessionProvider>
+    <AuthContextProvider>
+      <MainLayout />
+    </AuthContextProvider>
   );
 };
 
-export default Root;
+export default RootLayout;

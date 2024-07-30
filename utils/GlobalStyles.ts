@@ -2,9 +2,8 @@ import { StyleSheet, Platform } from 'react-native'
 import Constants from 'expo-constants'
 
 export default StyleSheet.create({
-  androidSafeArea: {
-    flex: 1,
+  safeArea: {
     backgroundColor: "white",
-    paddingTop: Constants.statusBarHeight + 10
+    paddingTop: Platform.OS === "android" ? Constants.statusBarHeight + 10 : 0,
   }
 })

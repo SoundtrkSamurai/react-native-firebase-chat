@@ -1,17 +1,17 @@
 import GlobalStyles from "@/utils/GlobalStyles";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, Text } from "react-native";
+import { ActivityIndicator, SafeAreaView } from "react-native";
 
-const Index = () => {
+const StartPage = () => {
   return (
     <SafeAreaView
-      className="flex-1 bg-red-200"
-      style={GlobalStyles.androidSafeArea}
+      className="items-center justify-center flex-1"
+      style={GlobalStyles.safeArea}
     >
       <StatusBar style="auto" />
-      <Text className="text-3xl text-center color-black">Home</Text>
+      <ActivityIndicator size="large" color="gray" />
     </SafeAreaView>
   );
 };
 
-export default Index;
+export default StartPage;
